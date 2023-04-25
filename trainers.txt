@@ -1,0 +1,33 @@
+1#Jeff Lucas#12th Street Tuscaloosa, AL 35401#jeff@gmail.com
+2#Anna Smith#57 Maple Ave. Springfield, IL 62701#anna.smith@hotmail.com
+3#David Chen#123 Main St. Seattle, WA 98101#david.chen@gmail.com
+4#Emily Kim#456 Oak St. San Francisco, CA 94110#emily.kim@yahoo.com
+5#John Doe#789 Elm St. New York, NY 10001#john.doe@gmail.com
+6#Karen Lee#1010 Peachtree St. Atlanta, GA 30309#karen.lee@hotmail.com
+7#Tom Brown#555 Madison Ave. New York, NY 10022#tom.brown@gmail.com
+8#Julia Martinez#444 Michigan Ave. Chicago, IL 60611#julia.martinez@yahoo.com
+9#Chris Thompson#999 Park Ave. New York, NY 10028#chris.thompson@gmail.com
+10#Samantha Lee#3333 Wilshire Blvd. Los Angeles, CA 90010#samantha.lee@hotmail.com
+11#Mark Davis#1234 Main St. Dallas, TX 75201#mark.davis@gmail.com
+12#Maria Hernandez#5678 Peachtree St. Atlanta, GA 30309#maria.hernandez@yahoo.com
+13#Andrew Johnson#2468 Elm St. San Francisco, CA 94110#andrew.johnson@gmail.com
+14#Sarah Kim#1357 Oak St. Seattle, WA 98101#sarah.kim@yahoo.com
+15#Michael Smith#369 Madison Ave. New York, NY 10022#michael.smith@gmail.com
+16#Erica Johnson#2468 Elm St. San Francisco, CA 94110#erica.johnson@hotmail.com
+17#Daniel Lee#3333 Wilshire Blvd. Los Angeles, CA 90010#daniel.lee@gmail.com
+18#Grace Park#1234 Main St. Dallas, TX 75201#grace.park@yahoo.com
+19#Jason Chen#5678 Peachtree St. Atlanta, GA 30309#jason.chen@hotmail.com
+20#Lauren Davis#789 Elm St. New York, NY 10001#lauren.davis@yahoo.com
+21#Brian Kim#1010 Peachtree St. Atlanta, GA 30309#brian.kim@gmail.com
+22#Jennifer Lee#555 Madison Ave. New York, NY 10022#jennifer.lee@hotmail.com
+23#William Brown#444 Michigan Ave. Chicago, IL 60611#william.brown@yahoo.com
+24#Christina Martinez#999 Park Ave. New York, NY 10028#christina.martinez@hotmail.com
+25#Patrick Thompson#2468 Elm St. San Francisco, CA 94110#patrick.thompson@gmail.com
+26#Amanda Kim#1357 Oak St. Seattle, WA 98101#amanda.kim@yahoo.com
+27#Joseph Smith#369 Madison Ave. New York, NY 10022#joseph.smith@gmail.com
+28#Stephanie Johnson#3333 Wilshire Blvd. Los Angeles, CA 90010#stephanie.johnson@hotmail.com
+29#Edward Lee#1234 Main St. Dallas, TX 75201#edward.lee@yahoo.com
+30#Michael Hernandez#5678 Peachtree St. Atlanta, GA#mhernandez@gmail.com
+31#Manav Patel#90 Highlands Drive Tuscaloosa, AL 35401#mpatel7@crimson.ua.edu
+32#Linda Park#9005 University Blvd Auburn, AL 36830#lpark@yahoo.com
+33#Linda Park#9008 Columbia Drive Auburn, AL 36830#llpark@yahoo.org
