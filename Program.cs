@@ -4,9 +4,9 @@ using System;
 
 
 
-//WelcomeDisp();
-//Menu.mainMenu();
-Menu.trainerMenu();
+WelcomeDisp();
+Menu.customerMenu();
+
 
 
 
@@ -24,22 +24,14 @@ Menu.trainerMenu();
 
 
 static void WelcomeDisp()
-
-     {
-
-        Console.Clear();
-
-        bool show = true;
-
-        do
-
-        {
-
-            while (!Console.KeyAvailable)
-
-            {
-
-                string alert = @"                                                                                ██╗   ██╗ █████╗      ██████╗██╗   ██╗███╗   ███╗
+{
+    Console.Clear();
+    bool show = true;
+    do
+    {
+        while (!Console.KeyAvailable)
+        {
+            string alert = @"                                                                                ██╗   ██╗ █████╗      ██████╗██╗   ██╗███╗   ███╗
                                                                                 ██║   ██║██╔══██╗    ██╔════╝╚██╗ ██╔╝████╗ ████║
                                                                                 ██║   ██║███████║    ██║  ███╗╚████╔╝ ██╔████╔██║
                                                                                 ██║   ██║██╔══██║    ██║   ██║ ╚██╔╝  ██║╚██╔╝██║
@@ -50,18 +42,12 @@ static void WelcomeDisp()
 
                 ";
 
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
-
-                Console.ForegroundColor = show ? ConsoleColor.DarkBlue: ConsoleColor.DarkRed; show = !show;
-
-                Console.WriteLine(alert); Console.ForegroundColor = ConsoleColor.White; Thread.Sleep(800);
-
-                Console.Clear();
-
-            }
-
-        } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-
-            Console.Clear();
-    Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = show ? ConsoleColor.DarkBlue : ConsoleColor.DarkRed; show = !show;
+            Console.WriteLine(alert); Console.ForegroundColor = ConsoleColor.White; Thread.Sleep(800);
+            Console.Clear();
+        }
+    } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+    Console.Clear();
+    Console.ResetColor();
 }
