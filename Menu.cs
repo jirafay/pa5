@@ -1,5 +1,7 @@
 using System;
 using pa5;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace pa5
 {
@@ -464,70 +466,73 @@ ____/|__/  \___//_/  \___/ \____//_/ /_/ /_/\___/      /_/    /_/    \__,_/ /_/ 
             System.Console.WriteLine("");
             System.Console.WriteLine("4. Exit");
             choice = Console.ReadLine();
+            while (choice != "4"){
+                if (choice == "1")
+                {
+                    TrainerUtility.DisplayTrainers();
+                    //ask if they want to exit
 
-            if (choice == "1")
-            {
-                TrainerUtility.DisplayTrainers();
-                //ask if they want to exit
+                    System.Console.WriteLine("Would you like to exit? (y/n)");
+                    string exitChoice = Console.ReadLine().ToLower();
+                    if (exitChoice == "y")
+                    {
+                        Environment.Exit(0);
+                    }
+                    System.Console.WriteLine("Please choose from the following options:");
+                    System.Console.WriteLine("1. View");
+                    System.Console.WriteLine("2. Edit");
+                    System.Console.WriteLine("3. Delete");
+                    System.Console.WriteLine("");
+                    System.Console.WriteLine("4. Exit");
+                    choice = Console.ReadLine();
 
-                System.Console.WriteLine("Would you like to exit? (y/n)");
-                string exitChoice = Console.ReadLine().ToLower();
-                if (exitChoice == "y")
+                }
+                else if (choice == "2")
+                {
+                    TrainerUtility.EditTrainer();
+
+                    //ask if they want to exit
+
+                    System.Console.WriteLine("Would you like to exit? (y/n)");
+                    string exitChoice = Console.ReadLine().ToLower();
+                    if (exitChoice == "y")
+                    {
+                        Environment.Exit(0);
+                    }
+                    System.Console.WriteLine("Please choose from the following options:");
+                    System.Console.WriteLine("1. View");
+                    System.Console.WriteLine("2. Edit");
+                    System.Console.WriteLine("3. Delete");
+                    System.Console.WriteLine("");
+                    System.Console.WriteLine("4. Exit");
+                    choice = Console.ReadLine();
+                }
+                else if (choice == "3")
+                {
+                    TrainerUtility.DeleteTrainer();
+
+                    //ask if they want to exit
+
+                    System.Console.WriteLine("Would you like to exit? (y/n)");
+                    string exitChoice = Console.ReadLine().ToLower();
+                    if (exitChoice == "y")
+                    {
+                        Environment.Exit(0);
+                    }
+                    System.Console.WriteLine("Please choose from the following options:");
+                    System.Console.WriteLine("1. View");
+                    System.Console.WriteLine("2. Edit");
+                    System.Console.WriteLine("3. Delete");
+                    System.Console.WriteLine("");
+                    System.Console.WriteLine("4. Exit");
+                    choice = Console.ReadLine();
+                }
+                else if (choice == "4")
                 {
                     Environment.Exit(0);
                 }
-                System.Console.WriteLine("Please choose from the following options:");
-                System.Console.WriteLine("1. View");
-                System.Console.WriteLine("2. Edit");
-                System.Console.WriteLine("3. Delete");
-                System.Console.WriteLine("");
-                System.Console.WriteLine("4. Exit");
-
-            }
-            else if (choice == "2")
-            {
-                TrainerUtility.EditTrainer();
-
-                //ask if they want to exit
-
-                System.Console.WriteLine("Would you like to exit? (y/n)");
-                string exitChoice = Console.ReadLine().ToLower();
-                if (exitChoice == "y")
-                {
-                    Environment.Exit(0);
-                }
-                System.Console.WriteLine("Please choose from the following options:");
-                System.Console.WriteLine("1. View");
-                System.Console.WriteLine("2. Edit");
-                System.Console.WriteLine("3. Delete");
-                System.Console.WriteLine("");
-                System.Console.WriteLine("4. Exit");
-            }
-            else if (choice == "3")
-            {
-                TrainerUtility.DeleteTrainer();
-
-                //ask if they want to exit
-
-                System.Console.WriteLine("Would you like to exit? (y/n)");
-                string exitChoice = Console.ReadLine().ToLower();
-                if (exitChoice == "y")
-                {
-                    Environment.Exit(0);
-                }
-                System.Console.WriteLine("Please choose from the following options:");
-                System.Console.WriteLine("1. View");
-                System.Console.WriteLine("2. Edit");
-                System.Console.WriteLine("3. Delete");
-                System.Console.WriteLine("");
-                System.Console.WriteLine("4. Exit");
-            }
-            else if (choice == "4")
-            {
-                Environment.Exit(0);
             }
         }
-
 
 
         public static void customerMenu()
@@ -545,6 +550,7 @@ ____/|__/  \___//_/  \___/ \____//_/ /_/ /_/\___/      \____/  \__,_/ /____/ \__
             System.Console.WriteLine("3. Workout Generator (Please not this is using an API so it takes a while to load so please go to Program.cs and run where it is commeneted to see feature");
             System.Console.WriteLine("4. Feeback and Ratings");
             System.Console.WriteLine("4. Exit");
+            choice = Console.ReadLine();
             while (choice != "5")
             {
                 if (choice == "1")
@@ -564,6 +570,7 @@ ____/|__/  \___//_/  \___/ \____//_/ /_/ /_/\___/      \____/  \__,_/ /____/ \__
                         System.Console.WriteLine("2. Bookings");
                         System.Console.WriteLine("3. Workout Generator (Please not this is using an API so it takes a while to load so please go to Program.cs and run where it is commeneted to see feature");
                         System.Console.WriteLine("4. Exit");
+                        choice = Console.ReadLine();
 
                 }
                 else if (choice == "2")
@@ -584,6 +591,7 @@ ____/|__/  \___//_/  \___/ \____//_/ /_/ /_/\___/      \____/  \__,_/ /____/ \__
                         System.Console.WriteLine("2. Bookings");
                         System.Console.WriteLine("3. Workout Generator (Please not this is using an API so it takes a while to load so please go to Program.cs and run where it is commeneted to see feature");
                         System.Console.WriteLine("4. Exit");
+                        choice = Console.ReadLine();
                 }
                 else if(choice =="3"){
                     System.Console.WriteLine("Please wait while we generate your workout plan...");
@@ -594,9 +602,35 @@ ____/|__/  \___//_/  \___/ \____//_/ /_/ /_/\___/      \____/  \__,_/ /____/ \__
                     {
                         Console.WriteLine(exercise);
                     }
+                    System.Console.WriteLine("Would you like to exit? (y/n)");
+                    string exitChoice = Console.ReadLine().ToLower();
+                    if (exitChoice == "y")
+                    {
+                        System.Console.WriteLine("Thank you for using our service. Have a nice day!");
+                        Environment.Exit(0);
+                    }
+                        System.Console.WriteLine("Please choose from the following options:");
+                        System.Console.WriteLine("1. Trainers");
+                        System.Console.WriteLine("2. Bookings");
+                        System.Console.WriteLine("3. Workout Generator (Please not this is using an API so it takes a while to load so please go to Program.cs and run where it is commeneted to see feature");
+                        System.Console.WriteLine("4. Exit");
+                        choice = Console.ReadLine();
                 }
                 else if(choice =="4"){
                     Feedback.FeedbackUser();
+                    System.Console.WriteLine("Would you like to exit? (y/n)");
+                    string exitChoice = Console.ReadLine().ToLower();
+                    if (exitChoice == "y")
+                    {
+                        System.Console.WriteLine("Thank you for using our service. Have a nice day!");
+                        Environment.Exit(0);
+                    }
+                        System.Console.WriteLine("Please choose from the following options:");
+                        System.Console.WriteLine("1. Trainers");
+                        System.Console.WriteLine("2. Bookings");
+                        System.Console.WriteLine("3. Workout Generator (Please not this is using an API so it takes a while to load so please go to Program.cs and run where it is commeneted to see feature");
+                        System.Console.WriteLine("4. Exit");
+                        choice = Console.ReadLine();
                 }
                 else if (choice == "5")
                 {

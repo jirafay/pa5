@@ -4,8 +4,9 @@ using System;
 
 
 
-WelcomeDisp();
-Menu.mainMenu();
+//WelcomeDisp();
+//Menu.mainMenu();
+Menu.trainerMenu();
 
 
 
