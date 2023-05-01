@@ -30,4 +30,3 @@
 30#Michael Hernandez#5678 Peachtree St. Atlanta, GA#mhernandez@gmail.com
 31#Manav Patel#90 Highlands Drive Tuscaloosa, AL 35401#mpatel7@crimson.ua.edu
 32#Linda Park#9005 University Blvd Auburn, AL 36830#lpark@yahoo.com
-33#Linda Park#9008 Columbia Drive Auburn, AL 36830#llpark@yahoo.org

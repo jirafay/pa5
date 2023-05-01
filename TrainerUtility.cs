@@ -71,6 +71,7 @@ namespace pa5
                     index = Array.IndexOf(lines, line);
                     System.Console.WriteLine("Enter the trainer's name: ");
                     name = Console.ReadLine();
+                    
 
                     System.Console.WriteLine("Enter the trainer's mailing address: ");
                     mailingAddress = Console.ReadLine();
@@ -82,6 +83,7 @@ namespace pa5
 
             if (found == true)
             {
+
                 lines[index] = ($"{id}#{name}#{mailingAddress}#{emailAddress}");
                 File.WriteAllLines(trainersFile, lines);
                 System.Console.WriteLine($"Trainer {name} has been edited.");

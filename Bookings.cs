@@ -5,7 +5,10 @@ namespace pa5
         private int SessionID;
         private string CustomerName;
         private string CustomerEmail;
-        private string TrainingDate;
+        private string TrainingDay;
+        private string TrainingMonth;
+
+        private string TrainingYear;
         private string TrainingTime;
         private string TrainerName;
         private int TransactionID;
@@ -93,16 +96,35 @@ namespace pa5
             CustomerEmail = value;
         }
 
-        public string GetTrainingDate()
+        public string GetTrainingDay()
         {
-            return TrainingDate;
+            return TrainingDay;
         }
 
-        public void SetTrainingDate(string value)
+        public void SetTrainingDay(string value)
         {
-            TrainingDate = value;
+            TrainingDay = value;
         }
 
+        public string GetTrainingMonth()
+        {
+            return TrainingMonth;
+        }
+
+        public void SetTrainingMonth(string value)
+        {
+            TrainingMonth = value;
+        }
+
+        public string GetTrainingYear()
+        {
+            return TrainingYear;
+        }
+
+        public void SetTrainingYear(string value)
+        {
+            TrainingYear = value;
+        }
         public string GetTrainerName()
         {
             return TrainerName;
@@ -123,13 +145,15 @@ namespace pa5
             Status = value;
         }
 
-        public Bookings(int TranscationID, int sessionID, string customerName, string customerEmail, string trainingDate, string trainingTime, string trainerName, double cost, int trainerID, string status)
+        public Bookings(int TranscationID, int sessionID, string customerName, string customerEmail, string trainingDay,string trainingMonth, string trainingYear, string trainingTime, string trainerName, double cost, int trainerID, string status)
         {
             TransactionID = TranscationID;
             SessionID = sessionID;
             CustomerName = customerName;
             CustomerEmail = customerEmail;
-            TrainingDate = trainingDate;
+            TrainingDay = trainingDay;
+            TrainingMonth=trainingMonth;
+            TrainingYear=trainingYear;
             TrainingTime = trainingTime;
             TrainerName = trainerName;
             Cost = cost;
@@ -142,22 +166,9 @@ namespace pa5
 
         }
 
-        public Bookings(int sessionID, int trainerID, string date, string time, double cost, string? name, string? email, int transactionId, string status)
-        {
-            SessionID = sessionID;
-            TrainerID = trainerID;
-            this.date = date;
-            this.time = time;
-            this.cost = cost;
-            this.name = name;
-            this.email = email;
-            TransactionID = transactionId;
-            Status = status;
-        }
-
         public override string ToString()
         {
-            return ($"{SessionID}#{CustomerName}#{CustomerEmail}#{TrainingDate}#{TrainerName}#{Status}#{TransactionID}");
+            return ($"{SessionID}#{CustomerName}#{CustomerEmail}#{TrainingDay}#{TrainingMonth}#{TrainingYear}#{TrainerName}#{Status}#{TransactionID}");
         }
 
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/uzmaraja/Desktop/MIS221/pa5/pa5.csproj": {}
+    "/Users/uzmaraja/Desktop/pa5/pa5.csproj": {}
   },
   "projects": {
-    "/Users/uzmaraja/Desktop/MIS221/pa5/pa5.csproj": {
+    "/Users/uzmaraja/Desktop/pa5/pa5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/uzmaraja/Desktop/MIS221/pa5/pa5.csproj",
+        "projectUniqueName": "/Users/uzmaraja/Desktop/pa5/pa5.csproj",
         "projectName": "pa5",
-        "projectPath": "/Users/uzmaraja/Desktop/MIS221/pa5/pa5.csproj",
+        "projectPath": "/Users/uzmaraja/Desktop/pa5/pa5.csproj",
         "packagesPath": "/Users/uzmaraja/.nuget/packages/",
-        "outputPath": "/Users/uzmaraja/Desktop/MIS221/pa5/obj/",
+        "outputPath": "/Users/uzmaraja/Desktop/pa5/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/uzmaraja/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "mysqlconnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -53,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }

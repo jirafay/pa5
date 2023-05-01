@@ -22,7 +22,7 @@ namespace pa5
                 {
                     continue;
                 }
-                if (bool.Parse(fields[5]) == false)
+                if (fields[7] == "True")
                 {
 
                     //when displaying the trainer id, display the trainer's name from the trainers.txt file
@@ -43,10 +43,10 @@ namespace pa5
                         }
                     }
                     System.Console.WriteLine($"Trainer ID: {fields[1]}");
-                    System.Console.WriteLine($"Date: {fields[2]}");
-                    System.Console.WriteLine($"Time: {fields[3]}");
-                    System.Console.WriteLine($"Cost: {fields[4]}");
-                    System.Console.WriteLine($"Taken: {fields[5]}");
+                    System.Console.WriteLine($"Date: {fields[2]} {fields[3]} {fields[4]}");
+                    System.Console.WriteLine($"Time: {fields[5]}");
+                    System.Console.WriteLine($"Cost: {fields[6]}");
+                    System.Console.WriteLine($"Taken: {fields[7]}");
                     System.Console.WriteLine();
                 }
                 
@@ -82,7 +82,9 @@ namespace pa5
             string name = "";
             string email = "";
             int trainerID = 0;
-            string date = "";
+            string day = "";
+            string month = "";
+            string year= "";
             string time = "";
             double cost = 0;
             int index = 0;
@@ -98,9 +100,11 @@ namespace pa5
                     found = true;
                     index = Array.IndexOf(lines, line);
                     trainerID = int.Parse(fields[1]);
-                    date = fields[2];
-                    time = fields[3];
-                    cost = double.Parse(fields[4]);
+                    day = fields[2];
+                    month= fields[3];
+                    year = fields[4];
+                    time = fields[5];
+                    cost = double.Parse(fields[6]);
                     transactionId = transactions.Count + 1;
                     status = "Booked";
                 }
@@ -115,14 +119,6 @@ namespace pa5
                 //create a transaction object
                 //write the transaction object to the transactions.txt file
                 //set the listing to taken
-
-                Bookings transaction = new Bookings(SessionID, trainerID, date, time, cost, name, email, transactionId, status);
-                transactions.Add(transaction);
-                //wrtie the transaction object to the transactions.txt file in the following format: listing id#trainer id#date#time#cost#client name#client email
-                string fileBack= ($"{SessionID}#{trainerID}#{date}#{time}#{cost}#{name}#{email}#{transactionId}#{status}");
-                File.AppendAllText("transactions.txt", fileBack + Environment.NewLine);
-                //find the name of the trainer based on the trainer id and create a variable to hold the trainer's name
-                //display a message to the user that they have successfully booked a session with the trainer on the date at the time for the cost
                 string trainersFile = "trainers.txt";
                 string[] lines2 = File.ReadAllLines(trainersFile);
                 string trainerName = "";
@@ -134,10 +130,18 @@ namespace pa5
                         trainerName = fields2[1];
                     }
                 }
-                System.Console.WriteLine($"You have successfully booked a session with {trainerName} on {date} at {time} for {cost}.");
+                Bookings transaction = new Bookings(transactionId, SessionID, name, email, day, month,year, time, trainerName, cost,trainerID, status);
+                transactions.Add(transaction);
+                //wrtie the transaction object to the transactions.txt file in the following format: listing id#trainer id#date#time#cost#client name#client email
+                string fileBack= ($"{SessionID}#{trainerID}#{day}#{month}#{year}#{time}#{cost}#{name}#{email}#{transactionId}#{status}");
+                File.AppendAllText("transactions.txt", fileBack + Environment.NewLine);
+                //find the name of the trainer based on the trainer id and create a variable to hold the trainer's name
+                //display a message to the user that they have successfully booked a session with the trainer on the date at the time for the cost
+
+                System.Console.WriteLine($"You have successfully booked a session with {trainerName} on {day} {month} {year} at {time} for {cost}.");
 
                 //set the listing to taken
-                lines[index] = $"{SessionID}#{trainerID}#{date}#{time}#{cost}#{true}";
+                lines[index] = $"{SessionID}#{trainerID}#{day}#{month}#{year}#{time}#{cost}#{true}";
                 File.WriteAllLines(listingsFile, lines);
 
 
@@ -163,7 +167,9 @@ namespace pa5
             string status = "";
             int SessionID=0;
             int trainerID=0;
-            string date="";
+            string day="";
+            string month="";
+            string year="";
             string time="";
             double cost=0;
             foreach (string line in lines)
@@ -173,60 +179,51 @@ namespace pa5
                 {
                     continue;
                 }
-                System.Console.WriteLine($"Transaction ID: {fields[7]}");
+                System.Console.WriteLine($"Transaction ID: {fields[9]}");
                 System.Console.WriteLine($"Listing ID: {fields[0]}");
                 System.Console.WriteLine($"Trainer ID: {fields[1]}");
-                System.Console.WriteLine($"Date: {fields[2]}");
-                System.Console.WriteLine($"Time: {fields[3]}");
-                System.Console.WriteLine($"Cost: {fields[4]}");
-                System.Console.WriteLine($"Client Name: {fields[5]}");
-                System.Console.WriteLine($"Client Email: {fields[6]}");
-                System.Console.WriteLine($"Status: {fields[8]}");
+                System.Console.WriteLine($"Date: {fields[2]} {fields[3]} {fields[4]}");
+                System.Console.WriteLine($"Time: {fields[5]}");
+                System.Console.WriteLine($"Cost: {fields[6]}");
+                System.Console.WriteLine($"Client Name: {fields[7]}");
+                System.Console.WriteLine($"Client Email: {fields[8]}");
+                System.Console.WriteLine($"Status: {fields[10]}");
                 System.Console.WriteLine();
             }
-
             System.Console.WriteLine("Enter the transaction ID: ");
             int transactionId = int.Parse(Console.ReadLine());
-            foreach (string line in lines)
+            System.Console.WriteLine("Enter the new status: ");
+            string newStatus = Console.ReadLine();
+
+            string transactionsFile1 = "transactions.txt";
+            string[] lines1 = File.ReadAllLines(transactionsFile1);
+
+            //using this new transaction id, find the transaction in the transactions.txt file and change the status to completed, cancelled, or no show
+            for(int i = 0; i < lines1.Length; i++)
             {
+                string line = lines1[i];
                 string[] fields = line.Split('#');
-                if (int.Parse(fields[7]) == transactionId)
+                if (fields.Length >= 11 && int.Parse(fields[9]) == transactionId)
                 {
-                    found = true;
-                    index = Array.IndexOf(lines, line);
-                    name = fields[5];
-                    emailAddress = fields[6];
-                    status = fields[8];
                     SessionID = int.Parse(fields[0]);
                     trainerID = int.Parse(fields[1]);
-                    date = fields[2];
-                    time = fields[3];
-                    cost = double.Parse(fields[4]);
-
-                }
-                
+                    day = fields[2];
+                    month = fields[3];
+                    year = fields[4];
+                    time = fields[5];
+                    cost = double.Parse(fields[6]);
+                    name = fields[7];
+                    emailAddress = fields[8];
+                    status = newStatus;
+                    //write the transaction object to the transactions.txt file at the same index
+                    lines1[i] = ($"{SessionID}#{trainerID}#{day}#{month}#{year}#{time}#{cost}#{name}#{emailAddress}#{transactionId}#{status}");
+                    File.WriteAllLines(transactionsFile1, lines1);
+                    break;
+                }   
             }
-
-            if (found == true)
-            {
-                
-                lines[index] = ($"{SessionID}#{trainerID}#{date}#{time}#{cost}#{name}#{emailAddress}#{transactionId}#{status}");
-                File.WriteAllLines(transactionsFile, lines);
-                System.Console.WriteLine("Enter the new status: ");
-                string newStatus = Console.ReadLine();
-                string fileBack= ($"{SessionID}#{trainerID}#{date}#{time}#{cost}#{name}#{emailAddress}#{transactionId}#{newStatus}");
-                //cahnge the status of the transaction to the new status and write it to the transactions.txt file on the same line
-                File.AppendAllText("transactions.txt", fileBack + Environment.NewLine);
-                System.Console.WriteLine("Status updated.");
-
-        
-
-
-
-
-        }    
+            Console.WriteLine("Transaction updated.");
+        }
     }
-}
 }
 
 
